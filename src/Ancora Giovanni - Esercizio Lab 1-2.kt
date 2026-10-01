@@ -1,7 +1,7 @@
 #!/usr/bin/env kotlin
 
 fun checkString (s: String?): Boolean {
-    val allowedLetters: Set<String> = setOf("A", "C", "T", "G")
+    val allowedLetters: Set<Char> = setOf('A', 'C', 'T', 'G')
 
     if (s == null) return false
     for (c: Char in s) {
@@ -11,7 +11,9 @@ fun checkString (s: String?): Boolean {
 }
 
 fun main() {
+    print("Insert first string: ")
     val s1: String? = readLine()
+    print("Insert second string: ")
     val s2: String? = readLine()
 
     if (!checkString(s1)) {
@@ -23,7 +25,7 @@ fun main() {
         return
     }
 
-    if (s1.length != s2.length) {
+    if (s1!!.length != s2!!.length) {
         println("Hamming Distance not possible")
         return
     }
