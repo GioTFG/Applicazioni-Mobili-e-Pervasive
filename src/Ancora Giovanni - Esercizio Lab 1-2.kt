@@ -19,9 +19,9 @@ fun checkString (s: String?): Boolean {
 
 fun main() {
     print("Insert first string: ")
-    val s1: String? = readLine()
+    val s1: String? = readlnOrNull() // IntelliJ dà il warning che readLine() è deprecato
     print("Insert second string: ")
-    val s2: String? = readLine()
+    val s2: String? = readlnOrNull()
 
     if (!checkString(s1)) {
         println("First string is not allowed")

@@ -63,7 +63,7 @@ fun main() {
     var word: String?
     do {
         print("Insert a word: ")
-        word = readLine()
+        word = readlnOrNull()
         println("Word: '$word'")
     } while (word == null || !isWordAllowed(word) || !enoughLetters(word, letters))
 
