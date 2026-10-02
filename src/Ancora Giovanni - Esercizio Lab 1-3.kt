@@ -1,3 +1,12 @@
+/*
+ * -- Informazioni --
+ * Scritto da: Ancora Giovanni
+ * Matricola: 391457
+ * il: 01/10/2026 - 02/10/2026
+ * IDE: IntelliJ IDEA
+ * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
+ */
+
 val allowedLetters = setOf<Char>(
     'A', 'B', 'C', 'D', 'E', 'F',
     'G', 'H', 'I', 'J', 'K', 'L',
@@ -10,7 +19,7 @@ val allowedWords = setOf<String>(
     "PAROLA", "CIAO", "PARMA", "UNI", "WOW", "BELLO",
     "SET", "DENTE", "GIOCO", "APP", "JEEP", "LISTA",
     "MAPPA", "VETTORE", "GOLF", "CALCIO", "SCI", "PISA",
-    "PISOLO", "SONNO", "LETTO", "LIBRO", "CALDO"
+    "PISOLO", "SONNO", "LETTO", "LIBRO", "CALDO", "KOALA", "BOH"
 )
 
 fun generateLetters(): List<Char> {

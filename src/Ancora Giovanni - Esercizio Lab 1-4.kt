@@ -1,3 +1,12 @@
+/*
+ * -- Informazioni --
+ * Scritto da: Ancora Giovanni
+ * Matricola: 391457
+ * il: 02/10/2026
+ * IDE: IntelliJ IDEA
+ * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
+ */
+
 interface Expr
 class Num(val value: Double): Expr
 class Sum(val left: Expr, val right: Expr): Expr

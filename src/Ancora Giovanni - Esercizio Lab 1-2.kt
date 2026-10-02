@@ -1,4 +1,11 @@
-#!/usr/bin/env kotlin
+/*
+ * -- Informazioni --
+ * Scritto da: Ancora Giovanni
+ * Matricola: 391457
+ * il: 01/10/2026
+ * IDE: IntelliJ IDEA
+ * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
+ */
 
 fun checkString (s: String?): Boolean {
     val allowedLetters: Set<Char> = setOf('A', 'C', 'T', 'G')
@@ -31,7 +38,7 @@ fun main() {
     }
 
     var distance = 0
-    for (i in 0 until s1.length) {
+    for (i in 0 ..< s1.length) {
         if (s1[i] != s2[i]) distance++
     }
 

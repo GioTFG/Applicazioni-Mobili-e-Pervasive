@@ -1,3 +1,12 @@
+/*
+ * -- Informazioni --
+ * Scritto da: Ancora Giovanni
+ * Matricola: 391457
+ * il: 01/10/2026
+ * IDE: Playground try.kotl.in
+ * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
+ */
+
 fun classify(n: Int): String = when {
     n < 0 -> "negative"
     n == 0 -> "zero"
