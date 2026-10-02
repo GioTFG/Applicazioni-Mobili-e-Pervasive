@@ -7,7 +7,10 @@ val allowedLetters = setOf<Char>(
 )
 
 val allowedWords = setOf<String>(
-    "parola", "ciao", "bob", "abete", "imola"
+    "PAROLA", "CIAO", "PARMA", "UNI", "WOW", "BELLO",
+    "SET", "DENTE", "GIOCO", "APP", "JEEP", "LISTA",
+    "MAPPA", "VETTORE", "GOLF", "CALCIO", "SCI", "PISA",
+    "PISOLO", "SONNO", "LETTO", "LIBRO", "CALDO"
 )
 
 fun generateLetters(): List<Char> {
@@ -16,12 +19,12 @@ fun generateLetters(): List<Char> {
     return l
 }
 
-fun isWordAllowed(word: String): Boolean = allowedWords.contains(word)
+fun isWordAllowed(word: String): Boolean = allowedWords.contains(word.uppercase())
 fun enoughLetters(word: String, letters: List<Char>): Boolean {
-    var remaining: MutableList<Char> = letters.toMutableList()
+    val remaining: MutableList<Char> = letters.toMutableList()
 
     for (c: Char in word) {
-        if (word.contains(c)) remaining.remove(c)
+        if (remaining.contains(c.uppercaseChar())) remaining.remove(c)
         else return false
     }
     return true
@@ -46,5 +49,15 @@ fun getWordScore(word: String): Int {
 fun main() {
     val letters: List<Char> = generateLetters()
 
-    println("Le tue lettere: $letters")
+    println("Letters available: $letters")
+
+    var word: String?
+    do {
+        print("Insert a word: ")
+        word = readLine()
+        println("Word: '$word'")
+    } while (word == null || !isWordAllowed(word) || !enoughLetters(word, letters))
+
+    val score: Int = getWordScore(word)
+    println("Word score: $score")
 }
