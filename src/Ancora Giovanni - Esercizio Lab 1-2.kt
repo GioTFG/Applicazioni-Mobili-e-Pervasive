@@ -2,20 +2,13 @@
  * -- Informazioni --
  * Scritto da: Ancora Giovanni
  * Matricola: 391457
- * il: 01/10/2026
+ * il: 01/10/2026, 06/10/2026
  * IDE: IntelliJ IDEA
  * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
  */
 
-fun checkString (s: String?): Boolean {
-    val allowedLetters: Set<Char> = setOf('A', 'C', 'T', 'G')
-
-    if (s == null) return false
-    for (c: Char in s) {
-        if (!allowedLetters.contains(c)) return false
-    }
-    return true
-}
+fun checkString (s: String?, allowedLetters: Set<Char>): Boolean =
+    s != null && s.all { allowedLetters.contains(it) }
 
 fun main() {
     print("Insert first string: ")
@@ -23,11 +16,13 @@ fun main() {
     print("Insert second string: ")
     val s2: String? = readlnOrNull()
 
-    if (!checkString(s1)) {
+    val allowedLetters: Set<Char> = setOf('A', 'C', 'T', 'G')
+
+    if (!checkString(s1, allowedLetters)) {
         println("First string is not allowed")
         return
     }
-    if (!checkString(s2)) {
+    if (!checkString(s2, allowedLetters)) {
         println("Second string is not allowed")
         return
     }

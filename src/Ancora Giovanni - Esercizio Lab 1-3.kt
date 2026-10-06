@@ -2,18 +2,12 @@
  * -- Informazioni --
  * Scritto da: Ancora Giovanni
  * Matricola: 391457
- * il: 01/10/2026 - 02/10/2026
+ * il: 01/10/2026 - 02/10/2026, 06/10/2026
  * IDE: IntelliJ IDEA
  * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
  */
 
-val allowedLetters = setOf<Char>(
-    'A', 'B', 'C', 'D', 'E', 'F',
-    'G', 'H', 'I', 'J', 'K', 'L',
-    'M', 'N', 'O', 'P', 'Q', 'R',
-    'S', 'T', 'U', 'V', 'W', 'X',
-    'Y', 'Z'
-)
+val allowedLetters = ('A'..'Z').toSet()
 
 val allowedWords = setOf<String>(
     "PAROLA", "CIAO", "PARMA", "UNI", "WOW", "BELLO",
