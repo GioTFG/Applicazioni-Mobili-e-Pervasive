@@ -7,6 +7,8 @@
  * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
  */
 
+package lab1
+
 fun classify(n: Int): String = when {
     n < 0 -> "negative"
     n == 0 -> "zero"

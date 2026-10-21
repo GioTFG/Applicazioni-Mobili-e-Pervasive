@@ -7,6 +7,8 @@
  * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
  */
 
+package lab2
+
 data class Item (val name: String, val quantity: Int)
 
 fun unitPriceCalculator(item: Item): Double = item.quantity * when (item.name) {

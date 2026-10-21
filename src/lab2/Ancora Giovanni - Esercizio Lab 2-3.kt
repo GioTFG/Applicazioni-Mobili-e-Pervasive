@@ -7,6 +7,8 @@
  * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
  */
 
+package lab2
+
 class Employee (val name: String, val department: String, val salary: Int)
 
 fun totalBy(employees: List<Employee>, selector: (Employee) -> Int): Int {

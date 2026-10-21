@@ -7,6 +7,8 @@
  * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
  */
 
+package lab1
+
 interface Expr
 class Num(val value: Double): Expr
 class Sum(val left: Expr, val right: Expr): Expr

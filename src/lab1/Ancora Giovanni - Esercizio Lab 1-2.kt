@@ -7,6 +7,8 @@
  * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
  */
 
+package lab1
+
 fun checkString (s: String?, allowedLetters: Set<Char>): Boolean =
     s != null && s.all { allowedLetters.contains(it) }
 

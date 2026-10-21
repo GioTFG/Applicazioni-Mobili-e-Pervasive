@@ -7,6 +7,8 @@
  * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
  */
 
+package lab2
+
 fun min(a: Int, b: Int): Int = if (a < b) a else b
 fun max(a: Int, b: Int): Int = if (a > b) a else b
 fun clamp(v: Int, lBound: Int, uBound: Int): Int = min(max(v, lBound), uBound)

@@ -7,6 +7,8 @@
  * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
  */
 
+package lab2
+
 fun filterNumbers(list: List<Int>, predicate: (Int) -> Boolean): List<Int> = list.filter { predicate(it) }
 
 fun isOdd(n: Int): Boolean = n % 2 != 0

@@ -7,6 +7,8 @@
  * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
  */
 
+package lab1
+
 val allowedLetters = ('A'..'Z').toSet()
 
 val allowedWords = setOf<String>(

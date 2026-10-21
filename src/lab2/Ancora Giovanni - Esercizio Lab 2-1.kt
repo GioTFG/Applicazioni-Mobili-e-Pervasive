@@ -7,6 +7,8 @@
  * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
  */
 
+package lab2
+
 fun main() {
     val cat: List<String> = listOf("Dune", "1984", "Foundation", "Neuromancer", "Hyperion")
 
