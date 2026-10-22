@@ -218,6 +218,66 @@ object Logger {
     }
 }
 
-fun main() {
+class Alarm() {
+    var state: AlarmState = AlarmStateDisarmed
 
+    fun arm() { state.arm(this) }
+    fun disarm() { state.disarm(this) }
+    fun trigger() { state.trigger(this) }
+}
+
+interface AlarmState {
+    fun arm(alarm: Alarm)
+    fun disarm(alarm: Alarm) {
+        alarm.state = AlarmStateDisarmed
+        Logger.log("Alarm disarmed")
+    }
+    fun trigger(alarm: Alarm)
+}
+
+// Singleton perché funzioni uguali per tutti, sarebbe spreco di memoria con tanti Alarm
+object AlarmStateDisarmed: AlarmState {
+    override fun arm(alarm: Alarm) {
+        alarm.state = AlarmStateArmed
+        Logger.log("Alarm armed")
+    }
+    override fun disarm(alarm: Alarm) {
+        Logger.log("Tried to disarm an already disarmed alarm")
+    }
+    override fun trigger(alarm: Alarm) {}
+}
+
+object AlarmStateArmed: AlarmState {
+    override fun arm(alarm: Alarm) {
+        Logger.log("Tried to arm an already armed alarm")
+    }
+    override fun trigger(alarm: Alarm) {
+        alarm.state = AlarmStateTriggered
+        Logger.log("Alarm detected motion!")
+    }
+}
+
+object AlarmStateTriggered: AlarmState {
+    override fun arm(alarm: Alarm) {
+        Logger.log("Tried to arm an already triggered alarm")
+    }
+    override fun trigger(alarm: Alarm) {
+        Logger.log("Motion detected by an already triggered alarm")
+    }
+}
+
+fun main() {
+    val a = Alarm()
+    a.disarm()
+    a.arm()
+    a.arm()
+    a.disarm()
+    a.trigger()
+    a.arm()
+    a.trigger()
+    a.trigger()
+    a.arm()
+    a.disarm()
+
+    Logger.printHistory()
 }
