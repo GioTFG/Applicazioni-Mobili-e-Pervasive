@@ -1,3 +1,14 @@
+/*
+ * -- Informazioni --
+ * Scritto da: Ancora Giovanni
+ * Matricola: 391457
+ * il: 20/10/2026-22/10/2026
+ * IDE: IntelliJ IDEA Open Sourceq
+ * GitHub: https://github.com/GioTFG/Applicazioni-Mobili-e-Pervasive
+ */
+
+package lab3
+
 interface HouseComponent {
     val name: String
     fun turnOffAll()
