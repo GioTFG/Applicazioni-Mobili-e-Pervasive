@@ -165,9 +165,12 @@ class AcmeSmartPlugSDKAdapter(override val name: String, private val smartPlugSD
     }
 }
 
+interface ThermostatSubscriber {
+    fun thermostatUpdate(temperature: Double)
+}
+
 class Thermostat(override val name: String): Device {
     override val maxPower: Double = 20.0
-    var temperature: Double = 20.0
 
     override var power: Double = 0.0
     override fun turnOff() { power = 0.0 }
@@ -178,12 +181,31 @@ class Thermostat(override val name: String): Device {
     override fun printAll(prefix: String) {
         println("${prefix}Thermostat: $name (${totalPower()}W)")
     }
+
+    private val subscribers = mutableListOf<ThermostatSubscriber>()
+    fun subscribe(subscriber: ThermostatSubscriber) { subscribers.add(subscriber) }
+    fun unsubscribe(subscriber: ThermostatSubscriber) { subscribers.remove(subscriber) }
+    private fun notifySubscribers() { for (s in subscribers) s.thermostatUpdate(temperature) }
+
+    var temperature: Double = 20.0
+        set(value) {
+            field = value
+            notifySubscribers()
+        }
 }
 
 interface DeviceCreator {
     fun createDevice(name: String): Device
 }
+object ThermostatCreator: DeviceCreator {
+    override fun createDevice(name: String) = Thermostat(name)
+}
 
+class Dashboard: ThermostatSubscriber {
+    override fun thermostatUpdate(temperature: Double) {
+        println("Dashboard: new temperature is $temperature.")
+    }
+}
 
 fun main() {
 
