@@ -207,6 +207,17 @@ class Dashboard: ThermostatSubscriber {
     }
 }
 
+object Logger {
+    private val events = mutableListOf<String>()
+    fun log(message: String) {
+        println("[LOG] $message")
+        events.add(message)
+    }
+    fun printHistory() {
+        for (e in events) println("[LOG HISTORY] $e")
+    }
+}
+
 fun main() {
 
 }
